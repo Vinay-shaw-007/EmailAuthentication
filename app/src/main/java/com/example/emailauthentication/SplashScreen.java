@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -15,6 +18,9 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.zoom);
+        ImageView logo = findViewById(R.id.logo);
+        logo.startAnimation(animation);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         new Handler().postDelayed(() -> {
             //Checking  if current is user is registered or not

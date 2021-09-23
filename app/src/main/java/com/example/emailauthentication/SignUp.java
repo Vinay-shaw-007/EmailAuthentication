@@ -3,7 +3,6 @@ package com.example.emailauthentication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,8 +22,8 @@ import java.util.Objects;
 public class SignUp extends AppCompatActivity {
 
     private EditText email, password, username;
+    private TextView signUpToLogin;
     private Button signUp;
-    ImageView back;
     private FirebaseAuth auth;
     private DatabaseReference userdata;
     private FirebaseUser user;
@@ -56,7 +55,7 @@ public class SignUp extends AppCompatActivity {
             }
         });
 
-        back.setOnClickListener(v -> onBackPressed());
+        signUpToLogin.setOnClickListener(v -> onBackPressed());
     }
 
     private Boolean validateEmail() {
@@ -103,7 +102,8 @@ public class SignUp extends AppCompatActivity {
         password = findViewById(R.id.signUp_password);
         username = findViewById(R.id.signUp_user_name);
         signUp = findViewById(R.id.btn_signUp);
-        back = findViewById(R.id.btn_back);
+//        back = findViewById(R.id.btn_back);
+        signUpToLogin = findViewById(R.id.signUp_login_btn);
         auth = FirebaseAuth.getInstance();
 
     }
